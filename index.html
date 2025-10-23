@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sweet Spot | Delicious Candies & Treats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #8c5a4d; /* Brown/Truffle - Dominant */
+            --secondary-color: #f2e8dc; /* Off-White/Cream - Background */
+            --accent-color: #e91e63; /* Pink/Candy Red - Highlights */
+            --text-color: #333;
+            --light-text-color: #666;
+            --white: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .shop-now-btn, .checkout-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .shop-now-btn:hover, .checkout-btn:hover {
+            background-color: #a06e60;
+            transform: translateY(-2px);
+        }
+        
+        /* --- Navigation Bar --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            padding: 0 5%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 25px;
+            font-size: 20px;
+            color: var(--light-text-color);
+            align-items: center;
+        }
+
+        .nav-icons i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .cart-icon-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            font-size: 12px;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Search Bar (Minimalist) */
+        .search-bar {
+            position: absolute;
+            top: 0;
+            right: 5%;
+            width: 0; 
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            transition: width 0.3s ease-in-out, background 0.3s;
+            overflow: hidden;
+            background: var(--white);
+            z-index: 1001;
+        }
+
+        .search-bar.active {
+            width: 300px; 
+        }
+
+        .search-bar input {
+            flex-grow: 1;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 0 10px;
+            outline: none;
+        }
+
+        .search-bar .fa-times {
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--light-text-color);
+            margin-left: 15px;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            display: flex;
+            justify-content: flex-start; 
+            align-items: center;
+            padding: 100px 5%;
+            position: relative;
+            min-height: 500px;
+            color: var(--white); 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
+            
+            background-image: url('https://assets.architecturaldigest.in/photos/64cbaa7db462697ebd0b5f21/16:9/w_1616,h_909,c_limit/Untitled%20design%20(27).png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--primary-color); 
+            overflow: hidden; 
+            box-shadow: inset 0 -50px 50px rgba(0,0,0,0.1); 
+        }
+        
+        /* Pseudo-element for Blur Effect */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); 
+            backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+            z-index: 2; 
+            text-align: left;
+            color: var(--white); 
+        }
+
+        .hero-content h1 {
+            font-size: 68px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: var(--white); 
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9); 
+            margin-bottom: 40px;
+        }
+
+        /* --- Hero Image & Animation (Modified for all-direction flow) --- */
+        .hero-image {
+            flex: 1;
+            position: relative;
+            height: 400px; 
+            z-index: 2;
+        }
+        
+        /* Keyframes for Continuous Floating & Swinging Animation */
+        @keyframes float-swing-1 {
+            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+            25% { transform: translate(30px, -40px) rotate(10deg) scale(1.1); }
+            50% { transform: translate(-30px, 20px) rotate(-5deg) scale(0.95); }
+            75% { transform: translate(15px, 50px) rotate(15deg) scale(1.05); }
+            100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        }
+
+        @keyframes float-swing-2 {
+            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+            30% { transform: translate(-25px, -15px) rotate(-8deg) scale(0.98); }
+            60% { transform: translate(40px, 10px) rotate(3deg) scale(1.02); }
+            90% { transform: translate(-5px, 35px) rotate(-12deg) scale(1); }
+            100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        }
+
+        @keyframes float-swing-3 {
+            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+            20% { transform: translate(50px, 10px) rotate(5deg) scale(1.03); }
+            45% { transform: translate(-20px, -35px) rotate(-10deg) scale(0.97); }
+            80% { transform: translate(-40px, 15px) rotate(8deg) scale(1.01); }
+            100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        }
+
+        .floating-sweet {
+            position: absolute;
+            font-size: 60px; /* Size of the sweet icons */
+            line-height: 1;
+            animation-duration: 8s; /* Longer cycle for smoother, wider movement */
+            animation-iteration-count: infinite; /* Continuous loop */
+            animation-timing-function: ease-in-out;
+        }
+
+        /* Positioning and animation for individual sweets */
+        .sweet-1 {
+            top: 20px; right: 20%;
+            animation-name: float-swing-1;
+            animation-delay: 0s;
+            animation-duration: 8.2s;
+        }
+        .sweet-2 {
+            top: 150px; right: 5%;
+            font-size: 40px;
+            animation-name: float-swing-2;
+            animation-duration: 7s;
+            animation-delay: -1s; /* Start earlier in the cycle */
+        }
+        .sweet-3 {
+            bottom: 50px; right: 30%;
+            animation-name: float-swing-3;
+            animation-duration: 9.5s;
+            animation-delay: -2s;
+        }
+        .sweet-4 {
+            top: 80px; left: 10%;
+            font-size: 50px;
+            animation-name: float-swing-2;
+            animation-duration: 6.5s;
+            animation-delay: -0.5s;
+        }
+        .sweet-5 {
+            bottom: 10px; left: 20%;
+            font-size: 70px;
+            animation-name: float-swing-1;
+            animation-duration: 10s;
+            animation-delay: -3s;
+        }
+        /* --- END Hero Image & Animation --- */
+
+
+        /* --- General Sections & Grids --- */
+        section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 44px;
+            margin-bottom: 50px;
+        }
+
+        /* --- SECTION DIVIDER STYLES --- */
+        .section-divider {
+            text-align: center;
+            padding: 30px 5%;
+            background-color: var(--secondary-color);
+            border-top: 1px solid #e0d9d0;
+            border-bottom: 1px solid #e0d9d0;
+            margin: 0;
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-divider i {
+            font-size: 2.5rem;
+            color: var(--accent-color); /* Pink/Candy Red */
+            animation: pulse-sweet 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-sweet {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        /* --- END SECTION DIVIDER STYLES --- */
+
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image span {
+            font-size: 80px; 
+            line-height: 1;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-options button {
+            background: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .pricing-options button.selected,
+        .pricing-options button:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        /* --- Categories Section (3x2 Grid) --- */
+        .category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 950px;
+            margin: 0 auto 50px;
+        }
+
+        .category-item {
+            flex: 0 0 calc(33.333% - 20px); 
+            max-width: 300px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        /* 4th and 5th items for the centered 2nd row */
+        .category-grid > *:nth-child(4),
+        .category-grid > *:nth-child(5) {
+            margin-top: 30px; 
+            flex: 0 0 calc(50% - 20px); 
+        }
+
+        .category-item-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+        }
+        
+        .category-item-icon span {
+            font-size: 40px; 
+            line-height: 1;
+        }
+        
+        /* --- Cart Modal & Animation (Simplified) --- */
+        
+        .cart-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); }
+        .cart-modal.show { display: block; }
+        .cart-content { background-color: var(--white); margin: 10% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); position: relative; }
+        .close-btn { color: var(--light-text-color); float: right; font-size: 36px; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .item-logo { width: 40px; height: 40px; border-radius: 5px; margin-right: 15px; display: flex; justify-content: center; align-items: center; font-size: 20px; background: var(--secondary-color); }
+        .item-logo span { font-size: 20px; }
+        .cart-item-details { display: flex; align-items: center; }
+        .quantity-controls { display: flex; align-items: center; gap: 10px; }
+        .quantity-controls button { background: var(--secondary-color); border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 18px; color: var(--primary-color); }
+        .delete-btn { color: var(--accent-color); cursor: pointer; margin-left: 15px; font-size: 18px; }
+        .cart-summary { margin-top: 20px; border-top: 2px solid var(--primary-color); padding-top: 15px; }
+        .total-line { font-size: 20px; font-weight: 700; color: var(--primary-color); }
+        .summary-line { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 16px; }
+
+        @keyframes flyToCart {
+            to { top: 20px; right: 5%; opacity: 0; transform: scale(0.1); }
+        }
+        .flying-item {
+            position: fixed; width: 40px; height: 40px; background-color: var(--accent-color); border-radius: 50%; z-index: 5000; pointer-events: none; animation: flyToCart 0.8s ease-in-out forwards;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 5%;
+                background-position: top center; 
+            }
+            .hero-content { text-align: center; }
+            .hero-content h1 { font-size: 50px; }
+            .hero-image { height: 300px; } 
+            
+            .nav-links {
+                display: none; flex-direction: column; position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: var(--white); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); padding: 20px 5%; text-align: center; gap: 15px;
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+            
+            .search-bar.active { width: 90%; right: 5%; } 
+
+            .category-item { flex: 0 0 calc(50% - 15px); }
+            .category-grid > *:nth-child(4),
+            .category-grid > *:nth-child(5) { margin-top: 0; flex: 0 0 calc(50% - 15px); }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 40px; }
+            section h2 { font-size: 36px; }
+            .product-grid { grid-template-columns: 1fr; }
+            .category-item { flex: 0 0 100%; }
+            .category-grid > *:nth-child(4),
+            .category-grid > *:nth-child(5) { margin-top: 30px; flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-btn">&times;</span>
+            <h3>Your Sweet Basket 🍬</h3>
+            <div id="cart-items-container" class="cart-items-container">
+                </div>
+            <div class="cart-summary">
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">₹0.00</span>
+                </div>
+                <div class="summary-line total-line">
+                    <span>Total:</span>
+                    <span id="cart-total">₹0.00</span>
+                </div>
+                <button class="checkout-btn" style="width: 100%; margin-top: 15px;">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <a href="#hero-section" class="logo">
+            <i class="fas fa-cookie-bite"></i> SWEETS
+        </a>
+        <nav class="nav-links">
+            <a href="#hero-section">Home</a>
+            <a href="#about-section">About</a>
+            <a href="#categories-section">Shop</a>
+            <a href="#contact-section">Contact</a>
+        </nav>
+        <div class="nav-icons">
+            <i class="fas fa-search" id="search-icon"></i>
+            <div class="cart-icon-container" id="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="search-bar" id="search-bar">
+            <input type="text" placeholder="Search for sweets..." />
+            <i class="fas fa-times" id="close-search"></i>
+        </div>
+    </header>
+
+    <section class="hero-section" id="hero-section">
+        <div class="hero-content">
+            <h1>Delicious Sweets</h1>
+            <p>Discover our wide variety of delightful sweets and treats, crafted for pure happiness. Simple, fresh, and irresistibly tasty.</p>
+            <button class="shop-now-btn" onclick="window.location.href='#categories-section'">Shop Now</button>
+        </div>
+        <div class="hero-image">
+            <div class="floating-sweet sweet-1">🍭</div>
+            <div class="floating-sweet sweet-2">🍩</div>
+            <div class="floating-sweet sweet-3">🍫</div>
+            <div class="floating-sweet sweet-4">🍬</div>
+            <div class="floating-sweet sweet-5">🐻</div>
+        </div>
+    </section>
+
+    <section class="featured-products" id="featured-products-section">
+        <h2>Featured Delights</h2>
+        <div class="product-grid" id="featured-product-grid">
+            </div>
+    </section>
+    
+    <div class="section-divider">
+        <i class="fas fa-candy-cane"></i>
+    </div>
+    <section class="categories" id="categories-section">
+        <h2>Shop by Category</h2>
+        <div class="category-grid" id="main-category-grid">
+            </div>
+
+        <div class="category-items-display" id="category-items-display" style="display: none;">
+            <h3 id="category-title"></h3>
+            <div class="product-grid" id="category-product-grid">
+                </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about-section" style="background-color: var(--white);">
+        <h2>About The Sweet Spot</h2>
+        <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <p>We are dedicated to bringing you the highest quality and most delightful sweets from around the world. Founded on a passion for joy and sugar, *The Sweet Spot* is more than just a store; it's an experience. Every treat is selected to guarantee a moment of pure bliss.</p>
+            <p>Our commitment is to freshness, quality ingredients, and unforgettable taste. We source our chocolates and candies responsibly, ensuring every bite is ethical and delicious. Enjoy the sweetness, guilt-free!</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="contact-content" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <p>Have a question, a custom order request, or just want to tell us your favorite candy? We'd love to hear from you!</p>
+            <form class="contact-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <input type="text" placeholder="Your Name" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <input type="email" placeholder="Your Email" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                <textarea placeholder="Your Message" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; min-height: 150px;"></textarea>
+                <button type="submit" class="shop-now-btn" style="align-self: flex-start;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // --- Product Data Structure (Icons are Emojis) ---
+        // PRICES UPDATED TO MORE REALISTIC INR VALUES (e.g., 100g = ₹150 - ₹300)
+        const products = {
+            'featured': [
+                { id: 'f1', name: 'Artisan Chocolate Box', category: 'chocolate', icon: '🍫', price: 280.00, isPerGram: true },
+                { id: 'f2', name: 'Giant Swirly Lollipop', category: 'lollipop', icon: '🍭', price: 90.00, isPerGram: false },
+                { id: 'f3', name: 'Rainbow Gummy Bears', category: 'gummy', icon: '🐻', price: 175.00, isPerGram: true },
+                { id: 'f4', name: 'Gourmet Red Velvet Cupcake', category: 'sweets', icon: '🧁', price: 150.00, isPerGram: true },
+                { id: 'f5', name: 'Choc-Chip Cookie Delight', category: 'cookies', icon: '🍪', price: 65.00, isPerGram: false }
+            ],
+            'chocolate': [
+                { id: 'c1', name: 'Milk Chocolate Bar', category: 'chocolate', icon: '🍫', price: 150.00, isPerGram: true },
+                { id: 'c2', name: 'Dark Truffles', category: 'chocolate', icon: '🌰', price: 350.00, isPerGram: true },
+                { id: 'c3', name: 'White Chocolate Squares', category: 'chocolate', icon: '⬜', price: 180.00, isPerGram: true },
+                { id: 'c4', name: 'Hazelnut Praline', category: 'chocolate', icon: '🌰', price: 380.00, isPerGram: true },
+                { id: 'c5', name: 'Sea Salt Caramels', category: 'chocolate', icon: '🧂', price: 320.00, isPerGram: true },
+                { id: 'c6', name: 'Chilli Chocolate', category: 'chocolate', icon: '🌶', price: 250.00, isPerGram: true },
+                { id: 'c7', name: 'Ruby Chocolate Buttons', category: 'chocolate', icon: '🔴', price: 230.00, isPerGram: true },
+                { id: 'c8', name: 'Mint Thins', category: 'chocolate', icon: '🍃', price: 200.00, isPerGram: true },
+                { id: 'c9', name: 'Coffee Beans', category: 'chocolate', icon: '☕', price: 300.00, isPerGram: true },
+                { id: 'c10', name: 'Almond Clusters', category: 'chocolate', icon: '🥜', price: 330.00, isPerGram: true }
+            ],
+            'lollipop': [
+                { id: 'l1', name: 'Cherry Swirl Pop', category: 'lollipop', icon: '🍭', price: 75.00, isPerGram: false },
+                { id: 'l2', name: 'Mega Rainbow Lolly', category: 'lollipop', icon: '🌈', price: 120.00, isPerGram: false },
+                { id: 'l3', name: 'Grape Bubblegum Lolly', category: 'lollipop', icon: '🍇', price: 60.00, isPerGram: false },
+                { id: 'l4', name: 'Watermelon Slice Pop', category: 'lollipop', icon: '🍉', price: 70.00, isPerGram: false },
+                { id: 'l5', name: 'Blue Raspberry Skull Pop', category: 'lollipop', icon: '💀', price: 85.00, isPerGram: false },
+                { id: 'l6', name: 'Strawberry Heart Lolly', category: 'lollipop', icon: '🍓', price: 75.00, isPerGram: false },
+                { id: 'l7', name: 'Cotton Candy Mega Pop', category: 'lollipop', icon: '☁', price: 110.00, isPerGram: false },
+                { id: 'l8', name: 'Cola Bottle Pop', category: 'lollipop', icon: '🥤', price: 60.00, isPerGram: false },
+                { id: 'l9', name: 'Tutti Frutti Whistle', category: 'lollipop', icon: '🎷', price: 55.00, isPerGram: false },
+                { id: 'l10', name: 'Lemon Drop Stick', category: 'lollipop', icon: '🍋', price: 50.00, isPerGram: false }
+            ],
+            'gummy': [
+                { id: 'g1', name: 'Sour Worms', category: 'gummy', icon: '🐛', price: 160.00, isPerGram: true },
+                { id: 'g2', name: 'Jelly Beans Mix', category: 'gummy', icon: '🍬', price: 140.00, isPerGram: true },
+                { id: 'g3', name: 'Tropical Frogs', category: 'gummy', icon: '🐸', price: 180.00, isPerGram: true },
+                { id: 'g4', name: 'Gummy Sharks', category: 'gummy', icon: '🦈', price: 210.00, isPerGram: true },
+                { id: 'g5', name: 'Peach Rings', category: 'gummy', icon: '🍑', price: 150.00, isPerGram: true },
+                { id: 'g6', name: 'Rainbow Belts', category: 'gummy', icon: '🌈', price: 170.00, isPerGram: true },
+                { id: 'g7', name: 'Strawberry Chews', category: 'gummy', icon: '🍓', price: 165.00, isPerGram: true },
+                { id: 'g8', name: 'Watermelon Slices', category: 'gummy', icon: '🍉', price: 175.00, isPerGram: true },
+                { id: 'g9', name: 'Cherry Bottles', category: 'gummy', icon: '🍒', price: 145.00, isPerGram: true },
+                { id: 'g10', name: 'Giant Cola Bottles', category: 'gummy', icon: '🍾', price: 200.00, isPerGram: true }
+            ],
+            'cookies': [
+                { id: 'k1', name: 'Oatmeal Raisin Cookie', category: 'cookies', icon: '🍪', price: 45.00, isPerGram: false },
+                { id: 'k2', name: 'Double Chocolate Cookie', category: 'cookies', icon: '🍫', price: 70.00, isPerGram: false },
+                { id: 'k3', name: 'Lemon Shortbread', category: 'cookies', icon: '🍋', price: 55.00, isPerGram: false },
+                { id: 'k4', name: 'Peanut Butter Kiss', category: 'cookies', icon: '🥜', price: 60.00, isPerGram: false },
+                { id: 'k5', name: 'Gingerbread Man', category: 'cookies', icon: '🧑', price: 65.00, isPerGram: false },
+                { id: 'k6', name: 'Snickerdoodle', category: 'cookies', icon: '🧈', price: 50.00, isPerGram: false },
+                { id: 'k7', name: 'Macadamia Nut White Chocolate', category: 'cookies', icon: '💎', price: 85.00, isPerGram: false },
+                { id: 'k8', name: 'Sugar Cookie with Sprinkles', category: 'cookies', icon: '🍥', price: 55.00, isPerGram: false },
+                { id: 'k9', name: 'Almond Biscotti', category: 'cookies', icon: '🥖', price: 65.00, isPerGram: false },
+                { id: 'k10', name: 'Rainbow Pinwheel', category: 'cookies', icon: '🌀', price: 70.00, isPerGram: false }
+            ],
+            'sweets': [ // Cakes, pastries, non-candy sweets
+                { id: 's1', name: 'Strawberry Donut', category: 'sweets', icon: '🍩', price: 110.00, isPerGram: true },
+                { id: 's2', name: 'Mini Éclair', category: 'sweets', icon: '🥐', price: 170.00, isPerGram: true },
+                { id: 's3', name: 'Brownie Bite', category: 'sweets', icon: '🟫', price: 120.00, isPerGram: true },
+                { id: 's4', name: 'New York Cheesecake Slice', category: 'sweets', icon: '🍰', price: 220.00, isPerGram: true },
+                { id: 's5', name: 'Lemon Meringue Tart', category: 'sweets', icon: '🥧', price: 160.00, isPerGram: true },
+                { id: 's6', name: 'Pistachio Macaron', category: 'sweets', icon: '🟢', price: 140.00, isPerGram: true },
+                { id: 's7', name: 'Chocolate Croissant', category: 'sweets', icon: '🥐', price: 130.00, isPerGram: true },
+                { id: 's8', name: 'Red Velvet Cupcake', category: 'sweets', icon: '🧁', price: 165.00, isPerGram: true },
+                { id: 's9', name: 'Caramel Fudge', category: 'sweets', icon: '🧈', price: 180.00, isPerGram: true },
+                { id: 's10', name: 'Cinnamon Roll', category: 'sweets', icon: '🥨', price: 115.00, isPerGram: true }
+            ]
+        };
+
+        // Pricing multipliers for 100g, 200g, 500g based on ₹150/100g typical starting price (unit price is for 100g)
+        const pricingTable = {
+            100: 1.0,  
+            200: 1.9,  // Slight discount for 200g
+            500: 4.5   // Larger discount for 500g
+        };
+
+        const categoriesList = [
+            { name: 'Chocolate', key: 'chocolate', icon: '🍫' },
+            { name: 'Lollipops', key: 'lollipop', icon: '🍭' },
+            { name: 'Gummy', key: 'gummy', icon: '🐻' },
+            { name: 'Cookies', key: 'cookies', icon: '🍪' },
+            { name: 'Sweets', key: 'sweets', icon: '🍩' }
+        ];
+
+        let cart = [];
+
+        // --- Utility Functions ---
+        function getProductById(id) {
+            for (const key in products) {
+                const product = products[key].find(p => p.id === id);
+                if (product) return product;
+            }
+            return null;
+        }
+
+        function calculatePrice(product, quantityKey) {
+            if (product.isPerGram) {
+                const grams = parseInt(quantityKey);
+                if (grams in pricingTable) {
+                    return product.price * pricingTable[grams];
+                }
+                return product.price;
+            }
+            return product.price * quantityKey;
+        }
+
+        // --- DOM Rendering Functions ---
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'product-image';
+            imageDiv.innerHTML = <span>${product.icon}</span>;
+
+            const pricingDiv = document.createElement('div');
+            pricingDiv.className = 'pricing-options';
+
+            let currentPrice = product.price;
+            let selectedQuantity = product.isPerGram ? '100' : 1;
+            
+            // RUPEE SYMBOL USED HERE
+            let priceText = product.isPerGram ? ₹${currentPrice.toFixed(2)}/100g : ₹${currentPrice.toFixed(2)}/item;
+
+            if (product.isPerGram) {
+                for (const gram in pricingTable) {
+                    const button = document.createElement('button');
+                    button.dataset.quantity = gram;
+                    button.textContent = ${gram}g;
+                    if (gram === '100') {
+                        button.classList.add('selected');
+                    }
+                    button.onclick = () => {
+                        pricingDiv.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                        button.classList.add('selected');
+                        selectedQuantity = gram;
+                        const newPrice = calculatePrice(product, gram);
+                        // RUPEE SYMBOL USED HERE
+                        card.querySelector('p.price').textContent = ₹${newPrice.toFixed(2)}/${gram}g;
+                    };
+                    pricingDiv.appendChild(button);
+                }
+            } else {
+                // RUPEE SYMBOL USED HERE
+                priceText = ₹${product.price.toFixed(2)} / Item;
+                pricingDiv.innerHTML = <span style="font-weight: 600;">Fixed Price:</span>;
+            }
+
+            card.innerHTML = `
+                ${imageDiv.outerHTML}
+                <h3>${product.name}</h3>
+                <p class="price">${priceText}</p>
+            `;
+            card.querySelector('h3').after(pricingDiv);
+
+            const button = document.createElement('button');
+            button.className = 'add-to-cart-btn shop-now-btn';
+            button.textContent = 'Add to Cart';
+            button.onclick = (e) => {
+                let quantityLabel = product.isPerGram ? ${selectedQuantity}g : '1 Item';
+                let finalPrice = product.isPerGram ? calculatePrice(product, selectedQuantity) : product.price;
+                let itemQuantityKey = product.isPerGram ? selectedQuantity : '1'; 
+
+                addToCart(product.id, itemQuantityKey, finalPrice, quantityLabel);
+                flyToCartAnimation(e.target);
+            };
+            card.appendChild(button);
+
+            return card;
+        }
+
+        function renderProducts(key, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            container.innerHTML = '';
+            const productList = products[key] || [];
+
+            productList.forEach(product => {
+                container.appendChild(createProductCard(product));
+            });
+            
+            if (containerId === 'category-product-grid') {
+                document.getElementById('category-items-display').style.display = 'block';
+            }
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('main-category-grid');
+            container.innerHTML = '';
+
+            categoriesList.forEach(category => {
+                const item = document.createElement('div');
+                item.className = 'category-item';
+                item.dataset.categoryKey = category.key;
+                item.innerHTML = `
+                    <div class="category-item-icon">
+                        <span>${category.icon}</span>
+                    </div>
+                    <p>${category.name}</p>
+                `;
+                item.onclick = () => showCategoryItems(category.key);
+                container.appendChild(item);
+            });
+        }
+
+        // --- Cart Logic ---
+        function updateCartTotal() {
+            const subtotal = cart.reduce((sum, item) => sum + item.finalPrice, 0);
+            // RUPEE SYMBOL USED HERE
+            document.getElementById('cart-total').textContent = ₹${subtotal.toFixed(2)};
+            document.getElementById('cart-subtotal').textContent = ₹${subtotal.toFixed(2)};
+            document.getElementById('cart-count').textContent = cart.reduce((count, item) => count + item.quantity, 0);
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--light-text-color); padding: 20px;">Your basket is empty. Add some sweets!</p>';
+                updateCartTotal();
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                
+                const itemTotal = item.finalPrice;
+
+                itemDiv.innerHTML = `
+                    <div class="cart-item-details">
+                        <div class="item-logo"><span>${item.icon}</span></div>
+                        <div class="item-details">
+                            <strong>${item.name}</strong>
+                            <span>${item.quantityLabel} | Price: ₹${item.basePrice.toFixed(2)}</span>
+                            <span>Total: *₹${itemTotal.toFixed(2)}*</span>
+                        </div>
+                    </div>
+                    <div class="quantity-controls">
+                        <button onclick="updateCartItemQuantity(${index}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateCartItemQuantity(${index}, 1)">+</button>
+                        <i class="fas fa-trash delete-btn" onclick="removeCartItem(${index})"></i>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+            updateCartTotal();
+        }
+
+        function addToCart(productId, quantityKey, finalPrice, quantityLabel) {
+            const product = getProductById(productId);
+            if (!product) return;
+
+            const quantity = 1; 
+            const existingItemIndex = cart.findIndex(item => item.id === productId && item.quantityKey === quantityKey);
+
+            if (existingItemIndex > -1) {
+                const existingItem = cart[existingItemIndex];
+                existingItem.quantity += quantity;
+                existingItem.finalPrice += finalPrice;
+            } else {
+                const unitPrice = product.isPerGram ? finalPrice : product.price;
+
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    icon: product.icon,
+                    quantity: quantity,
+                    quantityKey: quantityKey,
+                    basePrice: unitPrice, 
+                    finalPrice: finalPrice,
+                    quantityLabel: quantityLabel
+                });
+            }
+            renderCartItems(); 
+        }
+
+        function updateCartItemQuantity(index, delta) {
+            const item = cart[index];
+            const pricePerUnit = item.basePrice;
+
+            item.quantity += delta;
+            item.finalPrice += (delta * pricePerUnit);
+
+            if (item.quantity <= 0) {
+                removeCartItem(index);
+            } else {
+                renderCartItems();
+            }
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            renderCartItems();
+        }
+
+
+        // --- UI / Animation Functions ---
+
+        function flyToCartAnimation(button) {
+            const flyingItem = document.createElement('div');
+            flyingItem.className = 'flying-item';
+
+            const rect = button.getBoundingClientRect();
+            flyingItem.style.top = ${rect.top}px;
+            flyingItem.style.left = ${rect.left}px;
+
+            document.body.appendChild(flyingItem);
+
+            setTimeout(() => {
+                flyingItem.remove();
+                const cartIcon = document.getElementById('cart-icon');
+                cartIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => cartIcon.style.transform = 'scale(1.0)', 150);
+            }, 800);
+        }
+
+        function showCategoryItems(key) {
+            const displaySection = document.getElementById('category-items-display');
+            const titleElement = document.getElementById('category-title');
+            
+            const categoryName = categoriesList.find(c => c.key === key)?.name || 'Items';
+            
+            titleElement.textContent = ${categoryName} Varieties;
+            renderProducts(key, 'category-product-grid');
+            
+            displaySection.style.display = 'block';
+            displaySection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- Event Listeners and Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts('featured', 'featured-product-grid');
+            renderCategories();
+            renderCartItems();
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const searchIcon = document.getElementById('search-icon');
+            const searchBar = document.getElementById('search-bar');
+            const closeSearch = document.getElementById('close-search');
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const closeModal = document.querySelector('.close-btn');
+
+            // Toggle Search Bar
+            searchIcon.addEventListener('click', () => {
+                searchBar.classList.toggle('active');
+                navLinks.classList.remove('active');
+                if (searchBar.classList.contains('active')) {
+                    searchBar.querySelector('input').focus();
+                }
+            });
+
+            closeSearch.addEventListener('click', () => {
+                searchBar.classList.remove('active');
+            });
+            
+            // Hamburger Menu
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                searchBar.classList.remove('active');
+            });
+
+            // Cart Modal Toggle
+            cartIcon.addEventListener('click', () => {
+                cartModal.classList.add('show');
+                renderCartItems();
+            });
+
+            closeModal.addEventListener('click', () => {
+                cartModal.classList.remove('show');
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === cartModal) {
+                    cartModal.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
