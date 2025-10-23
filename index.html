@@ -149,7 +149,7 @@
             position: absolute;
             top: 0;
             right: 5%;
-            width: 0; 
+            width: 0; /* Starts hidden */
             height: var(--header-height);
             display: flex;
             align-items: center;
@@ -160,7 +160,7 @@
         }
 
         .search-bar.active {
-            width: 300px; 
+            width: 300px; /* Expands when active */
         }
 
         .search-bar input {
@@ -183,34 +183,22 @@
         /* --- Hero Section --- */
         .hero-section {
             display: flex;
-            justify-content: flex-start; 
+            justify-content: flex-start; /* Align content to the left */
             align-items: center;
             padding: 100px 5%;
             position: relative;
-            min-height: 500px;
-            color: var(--white); 
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
+            min-height: 500px; /* Ensure sufficient height for the background image */
+            color: var(--white); /* Text color for better contrast on background image */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Text shadow for readability */
             
-            background-image: url('https://assets.architecturaldigest.in/photos/64cbaa7db462697ebd0b5f21/16:9/w_1616,h_909,c_limit/Untitled%20design%20(27).png'); 
+            /* Background Image Styles */
+            background-image: url('https://assets.architecturaldigest.in/photos/64cbaa7db462697ebd0b5f21/16:9/w_1616,h_909,c_limit/Untitled%20design%20(27).png'); /* Use the new image here */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: var(--primary-color); 
+            background-color: var(--primary-color); /* Fallback color */
             overflow: hidden; 
-            box-shadow: inset 0 -50px 50px rgba(0,0,0,0.1); 
-        }
-        
-        /* Pseudo-element for Blur Effect */
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2); 
-            backdrop-filter: blur(2px);
-            z-index: 1;
+            box-shadow: inset 0 -50px 50px rgba(0,0,0,0.1); /* Subtle bottom shadow */
         }
         
         .hero-content {
@@ -218,6 +206,7 @@
             max-width: 500px;
             z-index: 2; 
             text-align: left;
+            /* Adjust content color for better readability on image background */
             color: var(--white); 
         }
 
@@ -225,94 +214,15 @@
             font-size: 68px;
             margin-bottom: 20px;
             line-height: 1.1;
-            color: var(--white); 
+            color: var(--white); /* Ensure heading is white */
         }
 
         .hero-content p {
             font-size: 18px;
-            color: rgba(255, 255, 255, 0.9); 
+            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for paragraph */
             margin-bottom: 40px;
         }
-
-        /* --- Hero Image & Animation (Modified for all-direction flow) --- */
-        .hero-image {
-            flex: 1;
-            position: relative;
-            height: 400px; 
-            z-index: 2;
-        }
         
-        /* Keyframes for Continuous Floating & Swinging Animation */
-        @keyframes float-swing-1 {
-            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-            25% { transform: translate(30px, -40px) rotate(10deg) scale(1.1); }
-            50% { transform: translate(-30px, 20px) rotate(-5deg) scale(0.95); }
-            75% { transform: translate(15px, 50px) rotate(15deg) scale(1.05); }
-            100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-        }
-
-        @keyframes float-swing-2 {
-            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-            30% { transform: translate(-25px, -15px) rotate(-8deg) scale(0.98); }
-            60% { transform: translate(40px, 10px) rotate(3deg) scale(1.02); }
-            90% { transform: translate(-5px, 35px) rotate(-12deg) scale(1); }
-            100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-        }
-
-        @keyframes float-swing-3 {
-            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-            20% { transform: translate(50px, 10px) rotate(5deg) scale(1.03); }
-            45% { transform: translate(-20px, -35px) rotate(-10deg) scale(0.97); }
-            80% { transform: translate(-40px, 15px) rotate(8deg) scale(1.01); }
-            100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-        }
-
-        .floating-sweet {
-            position: absolute;
-            font-size: 60px; /* Size of the sweet icons */
-            line-height: 1;
-            animation-duration: 8s; /* Longer cycle for smoother, wider movement */
-            animation-iteration-count: infinite; /* Continuous loop */
-            animation-timing-function: ease-in-out;
-        }
-
-        /* Positioning and animation for individual sweets */
-        .sweet-1 {
-            top: 20px; right: 20%;
-            animation-name: float-swing-1;
-            animation-delay: 0s;
-            animation-duration: 8.2s;
-        }
-        .sweet-2 {
-            top: 150px; right: 5%;
-            font-size: 40px;
-            animation-name: float-swing-2;
-            animation-duration: 7s;
-            animation-delay: -1s; /* Start earlier in the cycle */
-        }
-        .sweet-3 {
-            bottom: 50px; right: 30%;
-            animation-name: float-swing-3;
-            animation-duration: 9.5s;
-            animation-delay: -2s;
-        }
-        .sweet-4 {
-            top: 80px; left: 10%;
-            font-size: 50px;
-            animation-name: float-swing-2;
-            animation-duration: 6.5s;
-            animation-delay: -0.5s;
-        }
-        .sweet-5 {
-            bottom: 10px; left: 20%;
-            font-size: 70px;
-            animation-name: float-swing-1;
-            animation-duration: 10s;
-            animation-delay: -3s;
-        }
-        /* --- END Hero Image & Animation --- */
-
-
         /* --- General Sections & Grids --- */
         section {
             padding: 80px 5%;
@@ -323,31 +233,6 @@
             font-size: 44px;
             margin-bottom: 50px;
         }
-
-        /* --- SECTION DIVIDER STYLES --- */
-        .section-divider {
-            text-align: center;
-            padding: 30px 5%;
-            background-color: var(--secondary-color);
-            border-top: 1px solid #e0d9d0;
-            border-bottom: 1px solid #e0d9d0;
-            margin: 0;
-            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.03);
-        }
-
-        .section-divider i {
-            font-size: 2.5rem;
-            color: var(--accent-color); /* Pink/Candy Red */
-            animation: pulse-sweet 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse-sweet {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.8; }
-        }
-        /* --- END SECTION DIVIDER STYLES --- */
-
 
         .product-grid {
             display: grid;
@@ -385,6 +270,7 @@
             align-items: center;
         }
 
+        /* Realistic Icons (Emojis) Styling */
         .product-image span {
             font-size: 80px; 
             line-height: 1;
@@ -487,11 +373,10 @@
                 flex-direction: column;
                 text-align: center;
                 padding: 60px 5%;
-                background-position: top center; 
+                background-position: top center; /* Adjust background for smaller screens */
             }
             .hero-content { text-align: center; }
             .hero-content h1 { font-size: 50px; }
-            .hero-image { height: 300px; } 
             
             .nav-links {
                 display: none; flex-direction: column; position: absolute; top: var(--header-height); left: 0; width: 100%; background-color: var(--white); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); padding: 20px 5%; text-align: center; gap: 15px;
@@ -526,11 +411,11 @@
             <div class="cart-summary">
                 <div class="summary-line">
                     <span>Subtotal:</span>
-                    <span id="cart-subtotal">₹0.00</span>
+                    <span id="cart-subtotal">$0.00</span>
                 </div>
                 <div class="summary-line total-line">
                     <span>Total:</span>
-                    <span id="cart-total">₹0.00</span>
+                    <span id="cart-total">$0.00</span>
                 </div>
                 <button class="checkout-btn" style="width: 100%; margin-top: 15px;">Proceed to Checkout</button>
             </div>
@@ -570,13 +455,6 @@
             <p>Discover our wide variety of delightful sweets and treats, crafted for pure happiness. Simple, fresh, and irresistibly tasty.</p>
             <button class="shop-now-btn" onclick="window.location.href='#categories-section'">Shop Now</button>
         </div>
-        <div class="hero-image">
-            <div class="floating-sweet sweet-1">🍭</div>
-            <div class="floating-sweet sweet-2">🍩</div>
-            <div class="floating-sweet sweet-3">🍫</div>
-            <div class="floating-sweet sweet-4">🍬</div>
-            <div class="floating-sweet sweet-5">🐻</div>
-        </div>
     </section>
 
     <section class="featured-products" id="featured-products-section">
@@ -584,10 +462,7 @@
         <div class="product-grid" id="featured-product-grid">
             </div>
     </section>
-    
-    <div class="section-divider">
-        <i class="fas fa-candy-cane"></i>
-    </div>
+
     <section class="categories" id="categories-section">
         <h2>Shop by Category</h2>
         <div class="category-grid" id="main-category-grid">
@@ -603,7 +478,7 @@
     <section class="about-section" id="about-section" style="background-color: var(--white);">
         <h2>About The Sweet Spot</h2>
         <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <p>We are dedicated to bringing you the highest quality and most delightful sweets from around the world. Founded on a passion for joy and sugar, *The Sweet Spot* is more than just a store; it's an experience. Every treat is selected to guarantee a moment of pure bliss.</p>
+            <p>We are dedicated to bringing you the highest quality and most delightful sweets from around the world. Founded on a passion for joy and sugar, **The Sweet Spot** is more than just a store; it's an experience. Every treat is selected to guarantee a moment of pure bliss.</p>
             <p>Our commitment is to freshness, quality ingredients, and unforgettable taste. We source our chocolates and candies responsibly, ensuring every bite is ethical and delicious. Enjoy the sweetness, guilt-free!</p>
         </div>
     </section>
@@ -623,82 +498,80 @@
 
     <script>
         // --- Product Data Structure (Icons are Emojis) ---
-        // PRICES UPDATED TO MORE REALISTIC INR VALUES (e.g., 100g = ₹150 - ₹300)
         const products = {
             'featured': [
-                { id: 'f1', name: 'Artisan Chocolate Box', category: 'chocolate', icon: '🍫', price: 280.00, isPerGram: true },
-                { id: 'f2', name: 'Giant Swirly Lollipop', category: 'lollipop', icon: '🍭', price: 90.00, isPerGram: false },
-                { id: 'f3', name: 'Rainbow Gummy Bears', category: 'gummy', icon: '🐻', price: 175.00, isPerGram: true },
-                { id: 'f4', name: 'Gourmet Red Velvet Cupcake', category: 'sweets', icon: '🧁', price: 150.00, isPerGram: true },
-                { id: 'f5', name: 'Choc-Chip Cookie Delight', category: 'cookies', icon: '🍪', price: 65.00, isPerGram: false }
+                { id: 'f1', name: 'Artisan Chocolate Box', category: 'chocolate', icon: '🍫', price: 12.99, isPerGram: true },
+                { id: 'f2', name: 'Giant Swirly Lollipop', category: 'lollipop', icon: '🍭', price: 3.50, isPerGram: false },
+                { id: 'f3', name: 'Rainbow Gummy Bears', category: 'gummy', icon: '🐻', price: 4.99, isPerGram: true },
+                { id: 'f4', name: 'Gourmet Red Velvet Cupcake', category: 'sweets', icon: '🧁', price: 3.99, isPerGram: true },
+                { id: 'f5', name: 'Choc-Chip Cookie Delight', category: 'cookies', icon: '🍪', price: 2.00, isPerGram: false }
             ],
             'chocolate': [
-                { id: 'c1', name: 'Milk Chocolate Bar', category: 'chocolate', icon: '🍫', price: 150.00, isPerGram: true },
-                { id: 'c2', name: 'Dark Truffles', category: 'chocolate', icon: '🌰', price: 350.00, isPerGram: true },
-                { id: 'c3', name: 'White Chocolate Squares', category: 'chocolate', icon: '⬜', price: 180.00, isPerGram: true },
-                { id: 'c4', name: 'Hazelnut Praline', category: 'chocolate', icon: '🌰', price: 380.00, isPerGram: true },
-                { id: 'c5', name: 'Sea Salt Caramels', category: 'chocolate', icon: '🧂', price: 320.00, isPerGram: true },
-                { id: 'c6', name: 'Chilli Chocolate', category: 'chocolate', icon: '🌶', price: 250.00, isPerGram: true },
-                { id: 'c7', name: 'Ruby Chocolate Buttons', category: 'chocolate', icon: '🔴', price: 230.00, isPerGram: true },
-                { id: 'c8', name: 'Mint Thins', category: 'chocolate', icon: '🍃', price: 200.00, isPerGram: true },
-                { id: 'c9', name: 'Coffee Beans', category: 'chocolate', icon: '☕', price: 300.00, isPerGram: true },
-                { id: 'c10', name: 'Almond Clusters', category: 'chocolate', icon: '🥜', price: 330.00, isPerGram: true }
+                { id: 'c1', name: 'Milk Chocolate Bar', category: 'chocolate', icon: '🍫', price: 3.00, isPerGram: true },
+                { id: 'c2', name: 'Dark Truffles', category: 'chocolate', icon: '🌰', price: 8.50, isPerGram: true },
+                { id: 'c3', name: 'White Chocolate Squares', category: 'chocolate', icon: '⬜', price: 3.50, isPerGram: true },
+                { id: 'c4', name: 'Hazelnut Praline', category: 'chocolate', icon: '🌰', price: 9.00, isPerGram: true },
+                { id: 'c5', name: 'Sea Salt Caramels', category: 'chocolate', icon: '🧂', price: 7.50, isPerGram: true },
+                { id: 'c6', name: 'Chilli Chocolate', category: 'chocolate', icon: '🌶️', price: 6.00, isPerGram: true },
+                { id: 'c7', name: 'Ruby Chocolate Buttons', category: 'chocolate', icon: '🔴', price: 5.50, isPerGram: true },
+                { id: 'c8', name: 'Mint Thins', category: 'chocolate', icon: '🍃', price: 4.80, isPerGram: true },
+                { id: 'c9', name: 'Coffee Beans', category: 'chocolate', icon: '☕', price: 7.20, isPerGram: true },
+                { id: 'c10', name: 'Almond Clusters', category: 'chocolate', icon: '🥜', price: 8.00, isPerGram: true }
             ],
             'lollipop': [
-                { id: 'l1', name: 'Cherry Swirl Pop', category: 'lollipop', icon: '🍭', price: 75.00, isPerGram: false },
-                { id: 'l2', name: 'Mega Rainbow Lolly', category: 'lollipop', icon: '🌈', price: 120.00, isPerGram: false },
-                { id: 'l3', name: 'Grape Bubblegum Lolly', category: 'lollipop', icon: '🍇', price: 60.00, isPerGram: false },
-                { id: 'l4', name: 'Watermelon Slice Pop', category: 'lollipop', icon: '🍉', price: 70.00, isPerGram: false },
-                { id: 'l5', name: 'Blue Raspberry Skull Pop', category: 'lollipop', icon: '💀', price: 85.00, isPerGram: false },
-                { id: 'l6', name: 'Strawberry Heart Lolly', category: 'lollipop', icon: '🍓', price: 75.00, isPerGram: false },
-                { id: 'l7', name: 'Cotton Candy Mega Pop', category: 'lollipop', icon: '☁', price: 110.00, isPerGram: false },
-                { id: 'l8', name: 'Cola Bottle Pop', category: 'lollipop', icon: '🥤', price: 60.00, isPerGram: false },
-                { id: 'l9', name: 'Tutti Frutti Whistle', category: 'lollipop', icon: '🎷', price: 55.00, isPerGram: false },
-                { id: 'l10', name: 'Lemon Drop Stick', category: 'lollipop', icon: '🍋', price: 50.00, isPerGram: false }
+                { id: 'l1', name: 'Cherry Swirl Pop', category: 'lollipop', icon: '🍭', price: 2.50, isPerGram: false },
+                { id: 'l2', name: 'Mega Rainbow Lolly', category: 'lollipop', icon: '🌈', price: 5.00, isPerGram: false },
+                { id: 'l3', name: 'Grape Bubblegum Lolly', category: 'lollipop', icon: '🍇', price: 2.00, isPerGram: false },
+                { id: 'l4', name: 'Watermelon Slice Pop', category: 'lollipop', icon: '🍉', price: 2.20, isPerGram: false },
+                { id: 'l5', name: 'Blue Raspberry Skull Pop', category: 'lollipop', icon: '💀', price: 3.00, isPerGram: false },
+                { id: 'l6', name: 'Strawberry Heart Lolly', category: 'lollipop', icon: '🍓', price: 2.50, isPerGram: false },
+                { id: 'l7', name: 'Cotton Candy Mega Pop', category: 'lollipop', icon: '☁️', price: 4.50, isPerGram: false },
+                { id: 'l8', name: 'Cola Bottle Pop', category: 'lollipop', icon: '🥤', price: 2.00, isPerGram: false },
+                { id: 'l9', name: 'Tutti Frutti Whistle', category: 'lollipop', icon: '🎷', price: 1.80, isPerGram: false },
+                { id: 'l10', name: 'Lemon Drop Stick', category: 'lollipop', icon: '🍋', price: 1.50, isPerGram: false }
             ],
             'gummy': [
-                { id: 'g1', name: 'Sour Worms', category: 'gummy', icon: '🐛', price: 160.00, isPerGram: true },
-                { id: 'g2', name: 'Jelly Beans Mix', category: 'gummy', icon: '🍬', price: 140.00, isPerGram: true },
-                { id: 'g3', name: 'Tropical Frogs', category: 'gummy', icon: '🐸', price: 180.00, isPerGram: true },
-                { id: 'g4', name: 'Gummy Sharks', category: 'gummy', icon: '🦈', price: 210.00, isPerGram: true },
-                { id: 'g5', name: 'Peach Rings', category: 'gummy', icon: '🍑', price: 150.00, isPerGram: true },
-                { id: 'g6', name: 'Rainbow Belts', category: 'gummy', icon: '🌈', price: 170.00, isPerGram: true },
-                { id: 'g7', name: 'Strawberry Chews', category: 'gummy', icon: '🍓', price: 165.00, isPerGram: true },
-                { id: 'g8', name: 'Watermelon Slices', category: 'gummy', icon: '🍉', price: 175.00, isPerGram: true },
-                { id: 'g9', name: 'Cherry Bottles', category: 'gummy', icon: '🍒', price: 145.00, isPerGram: true },
-                { id: 'g10', name: 'Giant Cola Bottles', category: 'gummy', icon: '🍾', price: 200.00, isPerGram: true }
+                { id: 'g1', name: 'Sour Worms', category: 'gummy', icon: '🐛', price: 4.00, isPerGram: true },
+                { id: 'g2', name: 'Jelly Beans Mix', category: 'gummy', icon: '🍬', price: 3.50, isPerGram: true },
+                { id: 'g3', name: 'Tropical Frogs', category: 'gummy', icon: '🐸', price: 4.50, isPerGram: true },
+                { id: 'g4', name: 'Gummy Sharks', category: 'gummy', icon: '🦈', price: 5.20, isPerGram: true },
+                { id: 'g5', name: 'Peach Rings', category: 'gummy', icon: '🍑', price: 3.80, isPerGram: true },
+                { id: 'g6', name: 'Rainbow Belts', category: 'gummy', icon: '🌈', price: 4.10, isPerGram: true },
+                { id: 'g7', name: 'Strawberry Chews', category: 'gummy', icon: '🍓', price: 3.90, isPerGram: true },
+                { id: 'g8', name: 'Watermelon Slices', category: 'gummy', icon: '🍉', price: 4.30, isPerGram: true },
+                { id: 'g9', name: 'Cherry Bottles', category: 'gummy', icon: '🍒', price: 3.70, isPerGram: true },
+                { id: 'g10', name: 'Giant Cola Bottles', category: 'gummy', icon: '🍾', price: 5.00, isPerGram: true }
             ],
             'cookies': [
-                { id: 'k1', name: 'Oatmeal Raisin Cookie', category: 'cookies', icon: '🍪', price: 45.00, isPerGram: false },
-                { id: 'k2', name: 'Double Chocolate Cookie', category: 'cookies', icon: '🍫', price: 70.00, isPerGram: false },
-                { id: 'k3', name: 'Lemon Shortbread', category: 'cookies', icon: '🍋', price: 55.00, isPerGram: false },
-                { id: 'k4', name: 'Peanut Butter Kiss', category: 'cookies', icon: '🥜', price: 60.00, isPerGram: false },
-                { id: 'k5', name: 'Gingerbread Man', category: 'cookies', icon: '🧑', price: 65.00, isPerGram: false },
-                { id: 'k6', name: 'Snickerdoodle', category: 'cookies', icon: '🧈', price: 50.00, isPerGram: false },
-                { id: 'k7', name: 'Macadamia Nut White Chocolate', category: 'cookies', icon: '💎', price: 85.00, isPerGram: false },
-                { id: 'k8', name: 'Sugar Cookie with Sprinkles', category: 'cookies', icon: '🍥', price: 55.00, isPerGram: false },
-                { id: 'k9', name: 'Almond Biscotti', category: 'cookies', icon: '🥖', price: 65.00, isPerGram: false },
-                { id: 'k10', name: 'Rainbow Pinwheel', category: 'cookies', icon: '🌀', price: 70.00, isPerGram: false }
+                { id: 'k1', name: 'Oatmeal Raisin Cookie', category: 'cookies', icon: '🍪', price: 1.50, isPerGram: false },
+                { id: 'k2', name: 'Double Chocolate Cookie', category: 'cookies', icon: '🍫', price: 2.50, isPerGram: false },
+                { id: 'k3', name: 'Lemon Shortbread', category: 'cookies', icon: '🍋', price: 1.80, isPerGram: false },
+                { id: 'k4', name: 'Peanut Butter Kiss', category: 'cookies', icon: '🥜', price: 2.00, isPerGram: false },
+                { id: 'k5', name: 'Gingerbread Man', category: 'cookies', icon: '🧑', price: 2.20, isPerGram: false },
+                { id: 'k6', name: 'Snickerdoodle', category: 'cookies', icon: '🧈', price: 1.70, isPerGram: false },
+                { id: 'k7', name: 'Macadamia Nut White Chocolate', category: 'cookies', icon: '💎', price: 2.80, isPerGram: false },
+                { id: 'k8', name: 'Sugar Cookie with Sprinkles', category: 'cookies', icon: '🍥', price: 1.90, isPerGram: false },
+                { id: 'k9', name: 'Almond Biscotti', category: 'cookies', icon: '🥖', price: 2.10, isPerGram: false },
+                { id: 'k10', name: 'Rainbow Pinwheel', category: 'cookies', icon: '🌀', price: 2.30, isPerGram: false }
             ],
             'sweets': [ // Cakes, pastries, non-candy sweets
-                { id: 's1', name: 'Strawberry Donut', category: 'sweets', icon: '🍩', price: 110.00, isPerGram: true },
-                { id: 's2', name: 'Mini Éclair', category: 'sweets', icon: '🥐', price: 170.00, isPerGram: true },
-                { id: 's3', name: 'Brownie Bite', category: 'sweets', icon: '🟫', price: 120.00, isPerGram: true },
-                { id: 's4', name: 'New York Cheesecake Slice', category: 'sweets', icon: '🍰', price: 220.00, isPerGram: true },
-                { id: 's5', name: 'Lemon Meringue Tart', category: 'sweets', icon: '🥧', price: 160.00, isPerGram: true },
-                { id: 's6', name: 'Pistachio Macaron', category: 'sweets', icon: '🟢', price: 140.00, isPerGram: true },
-                { id: 's7', name: 'Chocolate Croissant', category: 'sweets', icon: '🥐', price: 130.00, isPerGram: true },
-                { id: 's8', name: 'Red Velvet Cupcake', category: 'sweets', icon: '🧁', price: 165.00, isPerGram: true },
-                { id: 's9', name: 'Caramel Fudge', category: 'sweets', icon: '🧈', price: 180.00, isPerGram: true },
-                { id: 's10', name: 'Cinnamon Roll', category: 'sweets', icon: '🥨', price: 115.00, isPerGram: true }
+                { id: 's1', name: 'Strawberry Donut', category: 'sweets', icon: '🍩', price: 2.80, isPerGram: true },
+                { id: 's2', name: 'Mini Éclair', category: 'sweets', icon: '🥐', price: 4.20, isPerGram: true },
+                { id: 's3', name: 'Brownie Bite', category: 'sweets', icon: '🟫', price: 3.00, isPerGram: true },
+                { id: 's4', name: 'New York Cheesecake Slice', category: 'sweets', icon: '🍰', price: 5.50, isPerGram: true },
+                { id: 's5', name: 'Lemon Meringue Tart', category: 'sweets', icon: '🥧', price: 4.00, isPerGram: true },
+                { id: 's6', name: 'Pistachio Macaron', category: 'sweets', icon: '🟢', price: 3.50, isPerGram: true },
+                { id: 's7', name: 'Chocolate Croissant', category: 'sweets', icon: '🥐', price: 3.20, isPerGram: true },
+                { id: 's8', name: 'Red Velvet Cupcake', category: 'sweets', icon: '🧁', price: 3.99, isPerGram: true },
+                { id: 's9', name: 'Caramel Fudge', category: 'sweets', icon: '🧈', price: 4.50, isPerGram: true },
+                { id: 's10', name: 'Cinnamon Roll', category: 'sweets', icon: '🥨', price: 2.90, isPerGram: true }
             ]
         };
 
-        // Pricing multipliers for 100g, 200g, 500g based on ₹150/100g typical starting price (unit price is for 100g)
         const pricingTable = {
-            100: 1.0,  
-            200: 1.9,  // Slight discount for 200g
-            500: 4.5   // Larger discount for 500g
+            100: 1.0, 
+            200: 1.9, 
+            500: 4.5
         };
 
         const categoriesList = [
@@ -739,22 +612,20 @@
 
             const imageDiv = document.createElement('div');
             imageDiv.className = 'product-image';
-            imageDiv.innerHTML = <span>${product.icon}</span>;
+            imageDiv.innerHTML = `<span>${product.icon}</span>`;
 
             const pricingDiv = document.createElement('div');
             pricingDiv.className = 'pricing-options';
 
             let currentPrice = product.price;
             let selectedQuantity = product.isPerGram ? '100' : 1;
-            
-            // RUPEE SYMBOL USED HERE
-            let priceText = product.isPerGram ? ₹${currentPrice.toFixed(2)}/100g : ₹${currentPrice.toFixed(2)}/item;
+            let priceText = product.isPerGram ? `$${currentPrice.toFixed(2)}/100g` : `$${currentPrice.toFixed(2)}/item`;
 
             if (product.isPerGram) {
                 for (const gram in pricingTable) {
                     const button = document.createElement('button');
                     button.dataset.quantity = gram;
-                    button.textContent = ${gram}g;
+                    button.textContent = `${gram}g`;
                     if (gram === '100') {
                         button.classList.add('selected');
                     }
@@ -763,15 +634,13 @@
                         button.classList.add('selected');
                         selectedQuantity = gram;
                         const newPrice = calculatePrice(product, gram);
-                        // RUPEE SYMBOL USED HERE
-                        card.querySelector('p.price').textContent = ₹${newPrice.toFixed(2)}/${gram}g;
+                        card.querySelector('p.price').textContent = `$${newPrice.toFixed(2)}/${gram}g`;
                     };
                     pricingDiv.appendChild(button);
                 }
             } else {
-                // RUPEE SYMBOL USED HERE
-                priceText = ₹${product.price.toFixed(2)} / Item;
-                pricingDiv.innerHTML = <span style="font-weight: 600;">Fixed Price:</span>;
+                priceText = `$${product.price.toFixed(2)} / Item`;
+                pricingDiv.innerHTML = `<span style="font-weight: 600;">Fixed Price:</span>`;
             }
 
             card.innerHTML = `
@@ -785,7 +654,7 @@
             button.className = 'add-to-cart-btn shop-now-btn';
             button.textContent = 'Add to Cart';
             button.onclick = (e) => {
-                let quantityLabel = product.isPerGram ? ${selectedQuantity}g : '1 Item';
+                let quantityLabel = product.isPerGram ? `${selectedQuantity}g` : '1 Item';
                 let finalPrice = product.isPerGram ? calculatePrice(product, selectedQuantity) : product.price;
                 let itemQuantityKey = product.isPerGram ? selectedQuantity : '1'; 
 
@@ -835,9 +704,8 @@
         // --- Cart Logic ---
         function updateCartTotal() {
             const subtotal = cart.reduce((sum, item) => sum + item.finalPrice, 0);
-            // RUPEE SYMBOL USED HERE
-            document.getElementById('cart-total').textContent = ₹${subtotal.toFixed(2)};
-            document.getElementById('cart-subtotal').textContent = ₹${subtotal.toFixed(2)};
+            document.getElementById('cart-total').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
             document.getElementById('cart-count').textContent = cart.reduce((count, item) => count + item.quantity, 0);
         }
 
@@ -862,8 +730,8 @@
                         <div class="item-logo"><span>${item.icon}</span></div>
                         <div class="item-details">
                             <strong>${item.name}</strong>
-                            <span>${item.quantityLabel} | Price: ₹${item.basePrice.toFixed(2)}</span>
-                            <span>Total: *₹${itemTotal.toFixed(2)}*</span>
+                            <span>${item.quantityLabel} | Price: $${item.basePrice.toFixed(2)}</span>
+                            <span>Total: **$${itemTotal.toFixed(2)}**</span>
                         </div>
                     </div>
                     <div class="quantity-controls">
@@ -933,8 +801,8 @@
             flyingItem.className = 'flying-item';
 
             const rect = button.getBoundingClientRect();
-            flyingItem.style.top = ${rect.top}px;
-            flyingItem.style.left = ${rect.left}px;
+            flyingItem.style.top = `${rect.top}px`;
+            flyingItem.style.left = `${rect.left}px`;
 
             document.body.appendChild(flyingItem);
 
@@ -952,7 +820,7 @@
             
             const categoryName = categoriesList.find(c => c.key === key)?.name || 'Items';
             
-            titleElement.textContent = ${categoryName} Varieties;
+            titleElement.textContent = `${categoryName} Varieties`;
             renderProducts(key, 'category-product-grid');
             
             displaySection.style.display = 'block';
